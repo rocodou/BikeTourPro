@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Home from "@/pages/Home";
 import RoutesPage from "@/pages/RoutesPage";
 import Contact from "@/pages/Contact";
-import Reservation from "@/pages/Reservation";
+import ReservationPage from "@/pages/ReservationPage";
 import NotFound from "@/pages/not-found";
 import SixDayTour from "@/pages/SixDayTour";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
@@ -35,7 +35,7 @@ function Router() {
       </Route>
       <Route path="/reservation">
         <PageTransition>
-          <Reservation />
+          <ReservationPage />
         </PageTransition>
       </Route>
       <Route path="/6-day-tour">
