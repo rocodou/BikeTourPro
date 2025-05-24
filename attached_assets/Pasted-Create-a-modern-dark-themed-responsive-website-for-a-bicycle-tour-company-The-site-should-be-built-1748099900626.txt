@@ -1,0 +1,52 @@
+Create a modern, dark-themed responsive website for a bicycle tour company. The site should be built using HTML, CSS (TailwindCSS preferred), and JavaScript (or React if component-based). It must include the following features and structure:
+
+🌑 Theme & General Design:
+
+Use a clean and modern dark mode design.
+TailwindCSS (or equivalent) for consistent mobile-first responsive layout.
+Smooth transitions, large readable fonts, soft shadows, and rounded corners.
+A small floating WhatsApp icon visible on every page, fixed to the bottom-right corner, which opens a predefined WhatsApp chat link.
+🏠 Homepage (/):
+
+Full-width YouTube video header at the top (autoplay, muted, looped, embedded responsively).
+Below the video: A short intro about the bicycle tour company and what makes it special.
+Call-to-action button: “Book a Tour” → leads to the reservation page or scrolls to reservation section.
+📍 Routes Page (/routes):
+
+Display a list or grid of bicycle tour routes, each with:
+Route name
+Difficulty level
+Distance/duration
+Description
+Map preview (image or Google Maps iframe)
+“Select This Route” or “Learn More” button
+📬 Contact Page (/contact):
+
+Simple contact form: Name, email, subject, message.
+Contact details: address, email (clickable), phone.
+Embedded Google Map of the office.
+Reminder message: “Need help? Chat with us directly on WhatsApp!”
+📅 Reservation Page (/reservation):
+
+A complete form for booking a bicycle tour, including:
+
+Full Name
+Email
+Phone Number
+Select Route (dropdown populated from routes page data)
+Date of Tour
+Participants Count
+Tour Type:
+Radio buttons or toggle: Group Tour / Private (Solo)
+Additional Notes
+Submit button with validation.
+After submission, display a confirmation message or redirect to a thank-you page.
+Include basic error handling (e.g., missing required fields).
+⚙️ Optional Enhancements:
+
+Add smooth scrolling and fade-in animations.
+Lazy load the YouTube video and images for performance.
+Include SEO-friendly meta tags and Open Graph support.
+Ready to deploy to platforms like Vercel or Netlify.
+Tech stack: HTML + TailwindCSS + vanilla JS or React (no TypeScript). No Swiper. Fully responsive. Prioritize mobile UX.
+
