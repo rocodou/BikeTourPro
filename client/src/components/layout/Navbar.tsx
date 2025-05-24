@@ -34,16 +34,16 @@ const Navbar = () => {
   return (
     <div>
       {/* Full-width Logo Banner */}
-      <div className="fixed top-0 left-0 right-0 z-50 w-full bg-black py-2">
+      <div className="fixed top-0 left-0 right-0 z-50 w-full bg-black py-1">
         <div className="w-full flex justify-center">
           <Link href="/" className="flex items-center">
-            <img src={logoImage} alt="Bike Tour Cappadocia" className="h-24 md:h-32" />
+            <img src={logoImage} alt="Bike Tour Cappadocia" className="h-16 md:h-20" />
           </Link>
         </div>
       </div>
       
       {/* Navigation Bar */}
-      <header className={`fixed top-28 md:top-36 left-0 right-0 z-40 bg-[#121212] bg-opacity-95 backdrop-filter backdrop-blur-sm shadow-md transition-all duration-300 ${isScrolled ? 'py-2 shadow-lg' : 'py-2'}`}>
+      <header className={`fixed top-20 md:top-24 left-0 right-0 z-40 bg-[#121212] bg-opacity-95 backdrop-filter backdrop-blur-sm shadow-md transition-all duration-300 ${isScrolled ? 'py-2 shadow-lg' : 'py-2'}`}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div className="w-10"></div>

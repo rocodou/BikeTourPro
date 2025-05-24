@@ -3,7 +3,7 @@ import ContactInfo from "@/components/contact/ContactInfo";
 
 const Contact = () => {
   return (
-    <section id="contact" className="pt-28 py-20 bg-[#2D2D2D]">
+    <section id="contact" className="pt-24 md:pt-28 py-20 bg-[#2D2D2D]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">Get in <span className="text-primary">Touch</span></h2>

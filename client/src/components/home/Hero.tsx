@@ -42,7 +42,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="pt-40 md:pt-48">
+    <section id="home" className="pt-28 md:pt-32">
       <div className="video-container">
         <div className="absolute inset-0 bg-black bg-opacity-50 z-10 flex items-center justify-center">
           <div className="text-center px-4 max-w-4xl mx-auto">
