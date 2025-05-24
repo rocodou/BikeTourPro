@@ -46,8 +46,8 @@ const Hero = () => {
       <div className="video-container">
         <div className="absolute inset-0 bg-black bg-opacity-50 z-10 flex items-center justify-center">
           <div className="text-center px-4 max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 font-heading text-white">Explore the World <span className="text-primary">On Two Wheels</span></h1>
-            <p className="text-lg md:text-xl mb-8 text-[#9CA3AF] max-w-2xl mx-auto">Unforgettable bicycle adventures through stunning landscapes, hidden gems, and cultural experiences.</p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 font-heading text-white">Explore <span className="text-primary">Cappadocia</span> On Two Wheels</h1>
+            <p className="text-lg md:text-xl mb-8 text-[#9CA3AF] max-w-2xl mx-auto">Unforgettable bicycle adventures through fairy chimneys, ancient valleys, and the magical landscapes of Cappadocia.</p>
             <Button 
               onClick={() => scrollToElement('reservation')}
               className="bg-primary hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
