@@ -32,12 +32,17 @@ const Navbar = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-[#121212] bg-opacity-95 backdrop-filter backdrop-blur-sm shadow-md transition-all duration-300 ${isScrolled ? 'py-2 shadow-lg' : 'py-4'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-[#121212] bg-opacity-95 backdrop-filter backdrop-blur-sm shadow-md transition-all duration-300 ${isScrolled ? 'py-2 shadow-lg' : 'py-2'}`}>
+      <div className="w-full bg-black py-2 mb-2">
+        <div className="container mx-auto px-4 flex justify-center">
+          <Link href="/" className="flex items-center">
+            <img src={logoImage} alt="Bike Tour Cappadocia" className="h-20 md:h-24" />
+          </Link>
+        </div>
+      </div>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          <Link href="/" className="flex items-center">
-            <img src={logoImage} alt="Bike Tour Cappadocia" className="h-12" />
-          </Link>
+          <div className="w-20 md:w-32"></div>
           
           <nav className="hidden md:flex space-x-8">
             <Link href="/" className={`nav-link text-light hover:text-primary transition-colors duration-300 ${isActive('/')}`}>Home</Link>
