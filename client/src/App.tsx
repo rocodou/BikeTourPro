@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect, useState } from "react";
 import Home from "@/pages/Home";
-import Routes from "@/pages/Routes";
+import RoutesPage from "@/pages/RoutesPage";
 import Contact from "@/pages/Contact";
 import Reservation from "@/pages/Reservation";
 import NotFound from "@/pages/not-found";
@@ -25,7 +25,7 @@ function Router() {
       </Route>
       <Route path="/routes">
         <PageTransition>
-          <Routes />
+          <RoutesPage />
         </PageTransition>
       </Route>
       <Route path="/contact">
