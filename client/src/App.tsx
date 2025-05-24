@@ -9,6 +9,7 @@ import Routes from "@/pages/Routes";
 import Contact from "@/pages/Contact";
 import Reservation from "@/pages/Reservation";
 import NotFound from "@/pages/not-found";
+import SixDayTour from "@/pages/SixDayTour";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/routes" component={Routes} />
       <Route path="/contact" component={Contact} />
       <Route path="/reservation" component={Reservation} />
+      <Route path="/6-day-tour" component={SixDayTour} />
       <Route component={NotFound} />
     </Switch>
   );
