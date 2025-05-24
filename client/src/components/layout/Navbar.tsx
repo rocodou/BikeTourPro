@@ -1,0 +1,71 @@
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [location] = useLocation();
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const isActive = (path: string) => {
+    return location === path ? 'active' : '';
+  };
+
+  return (
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-[#121212] bg-opacity-95 backdrop-filter backdrop-blur-sm shadow-md transition-all duration-300 ${isScrolled ? 'py-2 shadow-lg' : 'py-4'}`}>
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center">
+          <Link href="/" className="flex items-center">
+            <span className="text-2xl font-bold text-primary font-heading">Cycle<span className="text-secondary">Trek</span></span>
+          </Link>
+          
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/" className={`nav-link text-light hover:text-primary transition-colors duration-300 ${isActive('/')}`}>Home</Link>
+            <Link href="/routes" className={`nav-link text-light hover:text-primary transition-colors duration-300 ${isActive('/routes')}`}>Routes</Link>
+            <Link href="/reservation" className={`nav-link text-light hover:text-primary transition-colors duration-300 ${isActive('/reservation')}`}>Reservation</Link>
+            <Link href="/contact" className={`nav-link text-light hover:text-primary transition-colors duration-300 ${isActive('/contact')}`}>Contact</Link>
+          </nav>
+          
+          <button 
+            onClick={toggleMenu}
+            className="md:hidden text-light hover:text-primary transition-colors duration-300"
+            aria-label="Toggle mobile menu"
+          >
+            <i className="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+      
+      {/* Mobile Navigation Menu */}
+      <div className={`md:hidden absolute top-full left-0 right-0 bg-[#1E1E1E] bg-opacity-95 backdrop-filter backdrop-blur-md shadow-lg transform origin-top transition-all duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}>
+        <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          <Link href="/" onClick={() => setIsOpen(false)} className={`nav-link mobile-link text-light hover:text-primary transition-colors duration-300 py-2 ${isActive('/')}`}>Home</Link>
+          <Link href="/routes" onClick={() => setIsOpen(false)} className={`nav-link mobile-link text-light hover:text-primary transition-colors duration-300 py-2 ${isActive('/routes')}`}>Routes</Link>
+          <Link href="/reservation" onClick={() => setIsOpen(false)} className={`nav-link mobile-link text-light hover:text-primary transition-colors duration-300 py-2 ${isActive('/reservation')}`}>Reservation</Link>
+          <Link href="/contact" onClick={() => setIsOpen(false)} className={`nav-link mobile-link text-light hover:text-primary transition-colors duration-300 py-2 ${isActive('/contact')}`}>Contact</Link>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;
