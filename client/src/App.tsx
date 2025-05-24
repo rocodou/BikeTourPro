@@ -10,9 +10,9 @@ import Contact from "@/pages/Contact";
 import ReservationPage from "@/pages/ReservationPage";
 import NotFound from "@/pages/not-found";
 import SixDayTour from "@/pages/SixDayTour";
-import PrivacyPolicy from "@/pages/PrivacyPolicy";
-import TermsOfService from "@/pages/TermsOfService";
-import FAQ from "@/pages/FAQ";
+import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
+import TermsOfServicePage from "@/pages/TermsOfServicePage";
+import FAQPage from "@/pages/FAQPage";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -48,17 +48,17 @@ function Router() {
       </Route>
       <Route path="/privacy-policy">
         <PageTransition>
-          <PrivacyPolicy />
+          <PrivacyPolicyPage />
         </PageTransition>
       </Route>
       <Route path="/terms-of-service">
         <PageTransition>
-          <TermsOfService />
+          <TermsOfServicePage />
         </PageTransition>
       </Route>
       <Route path="/faq">
         <PageTransition>
-          <FAQ />
+          <FAQPage />
         </PageTransition>
       </Route>
       <Route>
