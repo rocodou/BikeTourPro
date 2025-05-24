@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { scrollToElement } from "@/lib/utils";
 import { useEffect, useRef } from "react";
+import { Link } from "wouter";
 
 const Hero = () => {
   const videoRef = useRef<HTMLIFrameElement>(null);
@@ -42,20 +43,33 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="pt-28 md:pt-32">
-      <div className="video-container">
-        <div className="absolute inset-0 bg-black bg-opacity-50 z-10 flex items-center justify-center">
-          <div className="text-center px-4 max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 font-heading text-white">Explore <span className="text-primary">Cappadocia</span> On Two Wheels</h1>
-            <p className="text-lg md:text-xl mb-8 text-[#9CA3AF] max-w-2xl mx-auto">Unforgettable bicycle adventures through fairy chimneys, ancient valleys, and the magical landscapes of Cappadocia.</p>
+    <section id="home" className="relative h-screen w-full">
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 z-10" />
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4">
+        <div className="text-center max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
+            Explore <span className="text-primary">Cappadocia</span> On Two Wheels
+          </h1>
+          <p className="text-lg md:text-xl mb-8 text-[#D1D5DB] max-w-2xl mx-auto">
+            Unforgettable bicycle adventures through fairy chimneys, ancient valleys, and the magical landscapes of Cappadocia.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              onClick={() => scrollToElement('reservation')}
-              className="bg-primary hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              asChild
+              className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
             >
-              Book a Tour
+              <Link href="/reservation">Book a Tour</Link>
+            </Button>
+            <Button 
+              asChild
+              className="bg-transparent border border-white hover:bg-white/10 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
+            >
+              <Link href="/routes">Explore Routes</Link>
             </Button>
           </div>
         </div>
+      </div>
+      <div className="w-full h-full overflow-hidden">
         <iframe 
           ref={videoRef}
           title="Cycling adventure video"

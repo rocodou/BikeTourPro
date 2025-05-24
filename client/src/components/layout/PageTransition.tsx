@@ -10,7 +10,7 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
     visible: { 
       opacity: 1,
       transition: {
-        duration: 0.2,
+        duration: 0.1, // Faster transition
         ease: "easeOut"
       }
     },
@@ -29,7 +29,7 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
       animate="visible"
       exit="exit"
       variants={variants}
-      className="w-full"
+      className="w-full h-full"
     >
       {children}
     </motion.div>

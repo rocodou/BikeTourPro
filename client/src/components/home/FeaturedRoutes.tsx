@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { scrollToElement } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 type RoutePreview = {
   id: string;
@@ -36,25 +36,22 @@ const featuredRoutes: RoutePreview[] = [
 ];
 
 const FeaturedRoutes = () => {
-  const getDifficultyColor = (difficulty: string) => {
+  // Get the correct CSS class for difficulty badge
+  const getDifficultyClass = (difficulty: string) => {
     switch (difficulty) {
       case 'easy':
-        return 'bg-green-500 hover:bg-green-600';
+        return 'difficulty-easy';
       case 'moderate':
-        return 'bg-yellow-500 hover:bg-yellow-600';
+        return 'difficulty-moderate';
       case 'challenging':
-        return 'bg-red-500 hover:bg-red-600';
+        return 'difficulty-challenging';
       default:
-        return 'bg-blue-500 hover:bg-blue-600';
+        return 'difficulty-moderate';
     }
   };
 
-  const handleViewAllRoutes = () => {
-    scrollToElement('routes');
-  };
-
   return (
-    <section className="py-16 bg-black/30 backdrop-blur-sm">
+    <section className="py-20 bg-gradient-to-b from-black/50 to-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Popular Cappadocia Routes</h2>
@@ -64,24 +61,26 @@ const FeaturedRoutes = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {featuredRoutes.map((route) => (
-            <Card key={route.id} className="overflow-hidden bg-gray-900 border-gray-800 hover:border-primary transition-all duration-300 h-full">
-              <div className="relative h-48 overflow-hidden">
+            <Card key={route.id} className="overflow-hidden bg-[#1E1E1E] border-gray-800 hover:border-primary transition-all duration-300 h-full">
+              <div className="relative h-52 overflow-hidden">
                 <img
                   src={route.image}
                   alt={route.name}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
-                <Badge className={`absolute top-2 right-2 ${getDifficultyColor(route.difficulty)}`}>
-                  {route.difficulty.charAt(0).toUpperCase() + route.difficulty.slice(1)}
-                </Badge>
+                <div className="absolute top-3 right-3">
+                  <span className={`difficulty-badge ${getDifficultyClass(route.difficulty)}`}>
+                    {route.difficulty.charAt(0).toUpperCase() + route.difficulty.slice(1)}
+                  </span>
+                </div>
               </div>
-              <CardContent className="p-5">
-                <h3 className="text-xl font-bold mb-2 text-white">{route.name}</h3>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-3 text-white">{route.name}</h3>
                 <p className="text-gray-400 mb-4">{route.shortDescription}</p>
-                <Link href={`/routes#${route.id}`} className="text-primary hover:text-blue-400 font-medium transition-colors duration-300">
-                  View Details →
+                <Link href={`/routes#${route.id}`} className="text-primary hover:text-primary/80 font-medium flex items-center">
+                  View Details <span className="ml-1">→</span>
                 </Link>
               </CardContent>
             </Card>
@@ -89,9 +88,9 @@ const FeaturedRoutes = () => {
         </div>
         
         <div className="text-center">
-          <Link href="/routes" className="inline-flex items-center bg-primary hover:bg-blue-600 text-white py-3 px-6 rounded-lg transition-colors duration-300 text-lg font-medium">
-            Explore All Routes
-          </Link>
+          <Button asChild variant="default" className="bg-primary hover:bg-primary/90 px-8 py-6 text-base">
+            <Link href="/routes">Explore All Routes</Link>
+          </Button>
         </div>
       </div>
     </section>
