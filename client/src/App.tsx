@@ -1,9 +1,9 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Home from "@/pages/Home";
 import Routes from "@/pages/Routes";
 import Contact from "@/pages/Contact";
@@ -13,17 +13,22 @@ import SixDayTour from "@/pages/SixDayTour";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import PageTransition from "@/components/layout/PageTransition";
 
 function Router() {
+  const [location] = useLocation();
+  
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/routes" component={Routes} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/reservation" component={Reservation} />
-      <Route path="/6-day-tour" component={SixDayTour} />
-      <Route component={NotFound} />
-    </Switch>
+    <PageTransition>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/routes" component={Routes} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/reservation" component={Reservation} />
+        <Route path="/6-day-tour" component={SixDayTour} />
+        <Route component={NotFound} />
+      </Switch>
+    </PageTransition>
   );
 }
 
