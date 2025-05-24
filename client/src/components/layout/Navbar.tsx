@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import logoImage from "../../assets/logo.png";
+import logoImage from "../../assets/logocapo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
