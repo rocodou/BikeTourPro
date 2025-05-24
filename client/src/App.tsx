@@ -84,7 +84,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Navbar />
-        <main>
+        <main className="min-h-screen pt-20 md:pt-24">
           <Router />
         </main>
         <Footer />
