@@ -10,6 +10,7 @@ import Contact from "@/pages/Contact";
 import ReservationPage from "@/pages/ReservationPage";
 import NotFound from "@/pages/not-found";
 import SixDayTour from "@/pages/SixDayTour";
+import AboutUs from "@/pages/AboutUs";
 import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
 import TermsOfService from "@/pages/legal/TermsOfService";
 import FAQ from "@/pages/legal/FAQ";
@@ -44,6 +45,11 @@ function Router() {
       <Route path="/6-day-tour">
         <PageTransition>
           <SixDayTour />
+        </PageTransition>
+      </Route>
+      <Route path="/about-us">
+        <PageTransition>
+          <AboutUs />
         </PageTransition>
       </Route>
       <Route path="/privacy-policy">
