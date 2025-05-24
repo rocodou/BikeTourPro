@@ -2,13 +2,13 @@ import RouteCard, { RouteInfo } from "./RouteCard";
 
 const routes: RouteInfo[] = [
   {
-    id: "coastal-explorer",
-    name: "Coastal Explorer",
+    id: "goreme-valley-tour",
+    name: "Göreme Valley Tour",
     difficulty: "easy",
     distance: "25 km",
     duration: "3 hours",
-    description: "A relaxing ride along stunning coastal paths with breathtaking ocean views, beach stops, and seaside villages.",
-    image: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    description: "A relaxing ride through the unique fairy chimney landscapes of Göreme Valley, with stops at panoramic viewpoints and hidden cave churches.",
+    image: "https://images.unsplash.com/photo-1640620708882-2bb28407f618?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
     price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
     includes: [
       "English speaking licensed tour guide",
@@ -19,80 +19,80 @@ const routes: RouteInfo[] = [
     ]
   },
   {
-    id: "forest-adventure",
-    name: "Forest Adventure",
+    id: "uchisar-pigeon-valley",
+    name: "Uçhisar & Pigeon Valley",
+    difficulty: "moderate",
+    distance: "35 km",
+    duration: "4 hours",
+    description: "Pedal through the spectacular Pigeon Valley with its cave dwellings and climb to Uçhisar Castle for breathtaking panoramic views of Cappadocia.",
+    image: "https://images.unsplash.com/photo-1580397581415-4263d2c1b0be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
+    includes: [
+      "English speaking licensed tour guide",
+      "Pick up and drop off to hotel",
+      "ORBEA LAUFEY H10 2025 bikes and helmet",
+      "Local lunch",
+      "Emergency support"
+    ]
+  },
+  {
+    id: "red-valley-adventure",
+    name: "Red Valley Adventure",
+    difficulty: "challenging",
+    distance: "45 km",
+    duration: "6 hours",
+    description: "A thrilling adventure through the colorful Red and Rose Valleys with their stunning rock formations, vine vineyards, and ancient cave dwellings.",
+    image: "https://images.unsplash.com/photo-1589307357824-64a9f95b9ce7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
+    includes: [
+      "English speaking licensed tour guide",
+      "Pick up and drop off to hotel",
+      "ORBEA LAUFEY H10 2025 bikes and helmet",
+      "Local lunch",
+      "Emergency support"
+    ]
+  },
+  {
+    id: "love-valley-exploration",
+    name: "Love Valley Exploration",
+    difficulty: "moderate",
+    distance: "30 km",
+    duration: "4 hours",
+    description: "Cycle through the iconic Love Valley with its unique tall, thin rock formations and explore the scenic vineyards and orchards of Cappadocia.",
+    image: "https://images.unsplash.com/photo-1570330211009-ee3caf5efe44?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
+    includes: [
+      "English speaking licensed tour guide",
+      "Pick up and drop off to hotel",
+      "ORBEA LAUFEY H10 2025 bikes and helmet",
+      "Local lunch",
+      "Emergency support"
+    ]
+  },
+  {
+    id: "underground-city-tour",
+    name: "Underground City & Soğanlı",
+    difficulty: "challenging",
+    distance: "50 km",
+    duration: "7 hours",
+    description: "An epic journey visiting the ancient Derinkuyu Underground City and the lesser-known Soğanlı Valley with its Byzantine rock-cut churches and cave villages.",
+    image: "https://images.unsplash.com/photo-1523719185231-aff40a400361?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
+    includes: [
+      "English speaking licensed tour guide",
+      "Pick up and drop off to hotel",
+      "ORBEA LAUFEY H10 2025 bikes and helmet",
+      "Local lunch",
+      "Emergency support"
+    ]
+  },
+  {
+    id: "ihlara-valley-ride",
+    name: "Ihlara Valley Ride",
     difficulty: "moderate",
     distance: "40 km",
     duration: "5 hours",
-    description: "Immerse yourself in nature as you ride through ancient forests, discover hidden waterfalls, and spot local wildlife.",
-    image: "https://images.unsplash.com/photo-1571188654248-7a89213915f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
-    includes: [
-      "English speaking licensed tour guide",
-      "Pick up and drop off to hotel",
-      "ORBEA LAUFEY H10 2025 bikes and helmet",
-      "Local lunch",
-      "Emergency support"
-    ]
-  },
-  {
-    id: "mountain-challenge",
-    name: "Mountain Challenge",
-    difficulty: "challenging",
-    distance: "60 km",
-    duration: "7 hours",
-    description: "A thrilling adventure for experienced cyclists with steep climbs, technical descents, and unforgettable panoramic views.",
-    image: "https://images.unsplash.com/photo-1503669678209-c68d00b3765d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
-    includes: [
-      "English speaking licensed tour guide",
-      "Pick up and drop off to hotel",
-      "ORBEA LAUFEY H10 2025 bikes and helmet",
-      "Local lunch",
-      "Emergency support"
-    ]
-  },
-  {
-    id: "vineyard-tour",
-    name: "Vineyard Tour",
-    difficulty: "easy",
-    distance: "30 km",
-    duration: "4 hours",
-    description: "Cycle through picturesque vineyards and rolling hills, with stops at local wineries for tastings and gourmet experiences.",
-    image: "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
-    includes: [
-      "English speaking licensed tour guide",
-      "Pick up and drop off to hotel",
-      "ORBEA LAUFEY H10 2025 bikes and helmet",
-      "Local lunch",
-      "Emergency support"
-    ]
-  },
-  {
-    id: "historic-tour",
-    name: "Historic Tour",
-    difficulty: "easy",
-    distance: "20 km",
-    duration: "3 hours",
-    description: "Discover the region's rich heritage on this leisurely ride through historic sites, ancient architecture, and cultural landmarks.",
-    image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
-    includes: [
-      "English speaking licensed tour guide",
-      "Pick up and drop off to hotel",
-      "ORBEA LAUFEY H10 2025 bikes and helmet",
-      "Local lunch",
-      "Emergency support"
-    ]
-  },
-  {
-    id: "riverside-ride",
-    name: "Riverside Ride",
-    difficulty: "moderate",
-    distance: "45 km",
-    duration: "5 hours",
-    description: "Follow the gentle flow of the river through varied landscapes, charming villages, and peaceful natural settings.",
+    description: "Follow the tranquil path along the Melendiz River through the spectacular Ihlara Canyon, visiting ancient cave churches and experiencing stunning natural beauty.",
     image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
     price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
     includes: [

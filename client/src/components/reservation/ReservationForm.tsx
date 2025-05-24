@@ -170,12 +170,12 @@ const ReservationForm = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent className="bg-[#121212] border border-gray-700 text-white">
-                            <SelectItem value="coastal-explorer">Coastal Explorer</SelectItem>
-                            <SelectItem value="forest-adventure">Forest Adventure</SelectItem>
-                            <SelectItem value="mountain-challenge">Mountain Challenge</SelectItem>
-                            <SelectItem value="vineyard-tour">Vineyard Tour</SelectItem>
-                            <SelectItem value="historic-tour">Historic Tour</SelectItem>
-                            <SelectItem value="riverside-ride">Riverside Ride</SelectItem>
+                            <SelectItem value="goreme-valley-tour">Göreme Valley Tour</SelectItem>
+                            <SelectItem value="uchisar-pigeon-valley">Uçhisar & Pigeon Valley</SelectItem>
+                            <SelectItem value="red-valley-adventure">Red Valley Adventure</SelectItem>
+                            <SelectItem value="love-valley-exploration">Love Valley Exploration</SelectItem>
+                            <SelectItem value="underground-city-tour">Underground City & Soğanlı</SelectItem>
+                            <SelectItem value="ihlara-valley-ride">Ihlara Valley Ride</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
