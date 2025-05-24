@@ -1,4 +1,5 @@
 import SixDayTourComponent from "@/components/routes/SixDayTour";
+import SixDayTourGallery from "@/components/routes/SixDayTourGallery";
 
 const SixDayTourPage = () => {
   return (
@@ -6,6 +7,7 @@ const SixDayTourPage = () => {
       <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">
         6-Day Self-Guided Gravel Bike Tour
       </h1>
+      <SixDayTourGallery />
       <SixDayTourComponent />
     </div>
   );
