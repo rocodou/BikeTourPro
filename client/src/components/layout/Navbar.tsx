@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import logoImage from "../../assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +36,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-primary font-heading">Cycle<span className="text-secondary">Trek</span></span>
+            <img src={logoImage} alt="Bike Tour Cappadocia" className="h-12" />
           </Link>
           
           <nav className="hidden md:flex space-x-8">

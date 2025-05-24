@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { isValidEmail } from "@/lib/utils";
+import logoImage from "../../assets/logo.png";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -43,9 +44,9 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <Link href="/" className="inline-block mb-4">
-              <span className="text-2xl font-bold text-primary font-heading">Cycle<span className="text-secondary">Trek</span></span>
+              <img src={logoImage} alt="Bike Tour Cappadocia" className="h-16" />
             </Link>
-            <p className="text-[#9CA3AF] mb-4">Experience the world on two wheels with our premium bicycle tours designed for all skill levels.</p>
+            <p className="text-[#9CA3AF] mb-4">Experience Cappadocia on two wheels with our premium bicycle tours designed for all skill levels.</p>
             <div className="flex space-x-4">
               <a href="#" className="text-[#9CA3AF] hover:text-primary transition-colors duration-300">
                 <i className="fab fa-facebook-f"></i>
@@ -103,7 +104,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-[#9CA3AF] text-sm">&copy; {new Date().getFullYear()} CycleTrek Adventures. All rights reserved.</p>
+          <p className="text-[#9CA3AF] text-sm">&copy; {new Date().getFullYear()} Bike Tour Cappadocia. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-[#9CA3AF] hover:text-primary text-sm transition-colors duration-300">Privacy Policy</a>
             <a href="#" className="text-[#9CA3AF] hover:text-primary text-sm transition-colors duration-300">Terms of Service</a>
