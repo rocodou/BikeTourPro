@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import ismailPhoto from "../assets/ismail.jpg";
 
 const AboutUs = () => {
   return (
@@ -64,16 +65,16 @@ const AboutUs = () => {
           </div>
         </div>
         
-        <div className="bg-[#1E1E1E] p-6 md:p-8 rounded-lg shadow-lg border border-gray-800 mb-8">
+        <div className="bg-[#1E1E1E] p-6 md:p-8 rounded-lg shadow-lg border border-gray-800 mb-16">
           <h2 className="text-2xl font-bold mb-6 text-white">Meet Our Expert Guide</h2>
           
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/3">
-              <div className="rounded-full overflow-hidden w-48 h-48 mx-auto">
+              <div className="rounded-lg overflow-hidden w-full max-w-sm mx-auto shadow-lg">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" 
+                  src={ismailPhoto} 
                   alt="Ismail - Tour Guide & Mechanic" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto"
                 />
               </div>
             </div>
@@ -101,44 +102,6 @@ const AboutUs = () => {
                   a journey full of fun, connection and unforgettable memories.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-        
-        <div className="bg-[#1E1E1E] p-6 md:p-8 rounded-lg shadow-lg border border-gray-800 mb-16">
-          <h2 className="text-2xl font-bold mb-6 text-white">Our Team</h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="text-center">
-              <div className="rounded-full overflow-hidden w-40 h-40 mx-auto mb-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e" 
-                  alt="Team member" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-1">Mehmet Yilmaz</h3>
-              <p className="text-primary mb-2">Founder & Lead Guide</p>
-              <p className="text-gray-300 text-sm">
-                Born and raised in Cappadocia, Mehmet has been cycling these trails for over 20 years
-                and knows every hidden gem in the region.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="rounded-full overflow-hidden w-40 h-40 mx-auto mb-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80" 
-                  alt="Team member" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-1">Ayse Kaya</h3>
-              <p className="text-primary mb-2">Tour Coordinator</p>
-              <p className="text-gray-300 text-sm">
-                With a background in tourism and a passion for cycling, Ayse ensures every tour is 
-                perfectly planned and executed.
-              </p>
             </div>
           </div>
         </div>
