@@ -9,6 +9,7 @@ export type RouteInfo = {
   description: string;
   image: string;
   price: string;
+  includes?: string[];
 };
 
 type RouteCardProps = {
@@ -61,6 +62,20 @@ const RouteCard = ({ route }: RouteCardProps) => {
             <span>Route Map Preview</span>
           </div>
         </div>
+        
+        {route.includes && (
+          <div className="mb-6">
+            <h4 className="text-sm font-medium text-white mb-2">Package Includes:</h4>
+            <ul className="text-[#9CA3AF] text-xs space-y-1">
+              {route.includes.map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-secondary mr-2 mt-0.5"><i className="fas fa-check-circle text-xs"></i></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         
         <div className="flex justify-between items-center">
           <span className="text-[#F59E0B] font-bold">{route.price}</span>

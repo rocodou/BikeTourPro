@@ -9,7 +9,14 @@ const routes: RouteInfo[] = [
     duration: "3 hours",
     description: "A relaxing ride along stunning coastal paths with breathtaking ocean views, beach stops, and seaside villages.",
     image: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    price: "$49 / person"
+    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
+    includes: [
+      "English speaking licensed tour guide",
+      "Pick up and drop off to hotel",
+      "ORBEA LAUFEY H10 2025 bikes and helmet",
+      "Local lunch",
+      "Emergency support"
+    ]
   },
   {
     id: "forest-adventure",
@@ -19,7 +26,14 @@ const routes: RouteInfo[] = [
     duration: "5 hours",
     description: "Immerse yourself in nature as you ride through ancient forests, discover hidden waterfalls, and spot local wildlife.",
     image: "https://images.unsplash.com/photo-1571188654248-7a89213915f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    price: "$69 / person"
+    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
+    includes: [
+      "English speaking licensed tour guide",
+      "Pick up and drop off to hotel",
+      "ORBEA LAUFEY H10 2025 bikes and helmet",
+      "Local lunch",
+      "Emergency support"
+    ]
   },
   {
     id: "mountain-challenge",
@@ -29,7 +43,14 @@ const routes: RouteInfo[] = [
     duration: "7 hours",
     description: "A thrilling adventure for experienced cyclists with steep climbs, technical descents, and unforgettable panoramic views.",
     image: "https://images.unsplash.com/photo-1503669678209-c68d00b3765d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    price: "$89 / person"
+    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
+    includes: [
+      "English speaking licensed tour guide",
+      "Pick up and drop off to hotel",
+      "ORBEA LAUFEY H10 2025 bikes and helmet",
+      "Local lunch",
+      "Emergency support"
+    ]
   },
   {
     id: "vineyard-tour",
@@ -39,7 +60,14 @@ const routes: RouteInfo[] = [
     duration: "4 hours",
     description: "Cycle through picturesque vineyards and rolling hills, with stops at local wineries for tastings and gourmet experiences.",
     image: "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    price: "$79 / person"
+    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
+    includes: [
+      "English speaking licensed tour guide",
+      "Pick up and drop off to hotel",
+      "ORBEA LAUFEY H10 2025 bikes and helmet",
+      "Local lunch",
+      "Emergency support"
+    ]
   },
   {
     id: "historic-tour",
@@ -49,7 +77,14 @@ const routes: RouteInfo[] = [
     duration: "3 hours",
     description: "Discover the region's rich heritage on this leisurely ride through historic sites, ancient architecture, and cultural landmarks.",
     image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    price: "$59 / person"
+    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
+    includes: [
+      "English speaking licensed tour guide",
+      "Pick up and drop off to hotel",
+      "ORBEA LAUFEY H10 2025 bikes and helmet",
+      "Local lunch",
+      "Emergency support"
+    ]
   },
   {
     id: "riverside-ride",
@@ -59,7 +94,14 @@ const routes: RouteInfo[] = [
     duration: "5 hours",
     description: "Follow the gentle flow of the river through varied landscapes, charming villages, and peaceful natural settings.",
     image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    price: "$65 / person"
+    price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
+    includes: [
+      "English speaking licensed tour guide",
+      "Pick up and drop off to hotel",
+      "ORBEA LAUFEY H10 2025 bikes and helmet",
+      "Local lunch",
+      "Emergency support"
+    ]
   }
 ];
 

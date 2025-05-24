@@ -10,11 +10,11 @@ const WhyChooseUs = () => {
           <ul className="space-y-4">
             <li className="flex items-start">
               <span className="text-secondary mr-3 mt-1"><i className="fas fa-check-circle"></i></span>
-              <span>Expert local guides who know the hidden gems</span>
+              <span>English speaking licensed tour guides who know the hidden gems</span>
             </li>
             <li className="flex items-start">
               <span className="text-secondary mr-3 mt-1"><i className="fas fa-check-circle"></i></span>
-              <span>Premium, well-maintained bicycle fleet for all rider types</span>
+              <span>Premium ORBEA LAUFEY H10 2025 bicycle fleet with helmets</span>
             </li>
             <li className="flex items-start">
               <span className="text-secondary mr-3 mt-1"><i className="fas fa-check-circle"></i></span>
@@ -22,7 +22,15 @@ const WhyChooseUs = () => {
             </li>
             <li className="flex items-start">
               <span className="text-secondary mr-3 mt-1"><i className="fas fa-check-circle"></i></span>
-              <span>Small groups for personalized experiences</span>
+              <span>Hotel pickup and drop-off included with all tours</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-secondary mr-3 mt-1"><i className="fas fa-check-circle"></i></span>
+              <span>Local lunch included in every tour package</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-secondary mr-3 mt-1"><i className="fas fa-check-circle"></i></span>
+              <span>Group discounts for parties of 2 or more riders</span>
             </li>
           </ul>
           <div className="mt-8">
