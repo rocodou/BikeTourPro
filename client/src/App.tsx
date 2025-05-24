@@ -16,19 +16,39 @@ import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
 
 function Router() {
-  const [location] = useLocation();
-  
   return (
-    <PageTransition>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/routes" component={Routes} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/reservation" component={Reservation} />
-        <Route path="/6-day-tour" component={SixDayTour} />
-        <Route component={NotFound} />
-      </Switch>
-    </PageTransition>
+    <Switch>
+      <Route path="/">
+        <PageTransition>
+          <Home />
+        </PageTransition>
+      </Route>
+      <Route path="/routes">
+        <PageTransition>
+          <Routes />
+        </PageTransition>
+      </Route>
+      <Route path="/contact">
+        <PageTransition>
+          <Contact />
+        </PageTransition>
+      </Route>
+      <Route path="/reservation">
+        <PageTransition>
+          <Reservation />
+        </PageTransition>
+      </Route>
+      <Route path="/6-day-tour">
+        <PageTransition>
+          <SixDayTour />
+        </PageTransition>
+      </Route>
+      <Route>
+        <PageTransition>
+          <NotFound />
+        </PageTransition>
+      </Route>
+    </Switch>
   );
 }
 
