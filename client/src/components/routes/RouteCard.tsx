@@ -1,5 +1,7 @@
 import { Link } from "wouter";
 
+import RouteDocuments, { RouteDocument } from './RouteDocuments';
+
 export type RouteInfo = {
   id: string;
   name: string;
@@ -10,6 +12,7 @@ export type RouteInfo = {
   image: string;
   price: string;
   includes?: string[];
+  documents?: RouteDocument[];
 };
 
 type RouteCardProps = {
@@ -79,12 +82,14 @@ const RouteCard = ({ route }: RouteCardProps) => {
         
         <div className="flex justify-between items-center">
           <span className="text-[#F59E0B] font-bold">{route.price}</span>
-          <Link href={`/reservation?route=${route.id}`}>
-            <a className="inline-flex items-center bg-primary hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition-colors duration-300">
-              <span>Select This Route</span>
-            </a>
+          <Link href={`/reservation?route=${route.id}`} className="inline-flex items-center bg-primary hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition-colors duration-300">
+            <span>Select This Route</span>
           </Link>
         </div>
+        
+        {route.documents && route.documents.length > 0 && (
+          <RouteDocuments documents={route.documents} routeName={route.name} />
+        )}
       </div>
     </div>
   );

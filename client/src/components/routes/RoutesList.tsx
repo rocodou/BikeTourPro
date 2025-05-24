@@ -16,6 +16,18 @@ const routes: RouteInfo[] = [
       "ORBEA LAUFEY H10 2025 bikes and helmet",
       "Local lunch",
       "Emergency support"
+    ],
+    documents: [
+      {
+        name: "Göreme Valley Tour Map",
+        description: "Detailed route map with points of interest",
+        fileUrl: "/documents/goreme-valley-map.txt"
+      },
+      {
+        name: "General Tour Information",
+        description: "Equipment, preparation, and contact details",
+        fileUrl: "/documents/route-info.txt"
+      }
     ]
   },
   {
@@ -33,6 +45,13 @@ const routes: RouteInfo[] = [
       "ORBEA LAUFEY H10 2025 bikes and helmet",
       "Local lunch",
       "Emergency support"
+    ],
+    documents: [
+      {
+        name: "General Tour Information",
+        description: "Equipment, preparation, and contact details",
+        fileUrl: "/documents/route-info.txt"
+      }
     ]
   },
   {
@@ -50,6 +69,18 @@ const routes: RouteInfo[] = [
       "ORBEA LAUFEY H10 2025 bikes and helmet",
       "Local lunch",
       "Emergency support"
+    ],
+    documents: [
+      {
+        name: "Red Valley Adventure Map",
+        description: "Detailed route map with elevation profile",
+        fileUrl: "/documents/red-valley-map.txt"
+      },
+      {
+        name: "General Tour Information",
+        description: "Equipment, preparation, and contact details",
+        fileUrl: "/documents/route-info.txt"
+      }
     ]
   },
   {
@@ -67,6 +98,13 @@ const routes: RouteInfo[] = [
       "ORBEA LAUFEY H10 2025 bikes and helmet",
       "Local lunch",
       "Emergency support"
+    ],
+    documents: [
+      {
+        name: "General Tour Information",
+        description: "Equipment, preparation, and contact details",
+        fileUrl: "/documents/route-info.txt"
+      }
     ]
   },
   {
@@ -84,6 +122,13 @@ const routes: RouteInfo[] = [
       "ORBEA LAUFEY H10 2025 bikes and helmet",
       "Local lunch",
       "Emergency support"
+    ],
+    documents: [
+      {
+        name: "General Tour Information",
+        description: "Equipment, preparation, and contact details",
+        fileUrl: "/documents/route-info.txt"
+      }
     ]
   },
   {
@@ -101,6 +146,13 @@ const routes: RouteInfo[] = [
       "ORBEA LAUFEY H10 2025 bikes and helmet",
       "Local lunch",
       "Emergency support"
+    ],
+    documents: [
+      {
+        name: "General Tour Information",
+        description: "Equipment, preparation, and contact details",
+        fileUrl: "/documents/route-info.txt"
+      }
     ]
   }
 ];
