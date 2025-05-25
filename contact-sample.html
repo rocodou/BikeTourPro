@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | Bike Tour Cappadocia</title>
+    <meta name="description" content="Bike Tour Cappadocia ile iletişime geçin. Kapadokya bisiklet turları hakkında bilgi alın ve rezervasyon yapın.">
+    <style>
+        :root {
+            --background: #0a0a0a;
+            --foreground: #f9f9f9;
+            --primary: #ff6118;
+            --secondary: #ffcc00;
+            --accent: #ff8f00;
+            --muted: #404040;
+            --muted-foreground: #a5a5a5;
+            --border: #333333;
+            --card: #1a1a1a;
+            --radius: 0.5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(10, 10, 10, 0.9);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--foreground);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .page-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/contact-header.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            color: white;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            background-color: var(--card);
+            padding: 30px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .info-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .info-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .info-details p, .info-details a {
+            color: var(--muted-foreground);
+            text-decoration: none;
+        }
+
+        .info-details a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background-color: var(--card);
+            padding: 30px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--foreground);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #e55613;
+        }
+
+        .map {
+            height: 400px;
+            margin-top: 80px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        footer {
+            background-color: var(--card);
+            padding: 60px 0 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-column p, .footer-column a {
+            color: var(--muted-foreground);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--muted);
+            border-radius: 50%;
+            color: var(--foreground);
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--muted-foreground);
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        /* Mobil uyumlu tasarım */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                font-size: 1.5rem;
+                color: var(--foreground);
+                cursor: pointer;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logocapo.png" alt="Bike Tour Cappadocia">
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="routes.html">Rotalar</a></li>
+                        <li><a href="gallery.html">Galeri</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="contact.html" class="active">İletişim</a></li>
+                        <li><a href="reservation.html" class="btn-primary">Rezervasyon</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1 class="page-title">İletişim</h1>
+    </div>
+
+    <section>
+        <div class="container">
+            <h2>Bizimle İletişime Geçin</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>İletişim Bilgileri</h3>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-details">
+                            <h4>Adres</h4>
+                            <p>İsali, İçeridere Sk. NO:23, 50180 Göreme/Nevşehir Merkez/Nevşehir, Türkiye</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-details">
+                            <h4>Telefon</h4>
+                            <p><a href="tel:+905376467655">+90 537 646 76 55</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-details">
+                            <h4>E-posta</h4>
+                            <p><a href="mailto:info@biketourcappadocia.com">info@biketourcappadocia.com</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-details">
+                            <h4>Çalışma Saatleri</h4>
+                            <p>Haftanın her günü 08:00 - 20:00</p>
+                        </div>
+                    </div>
+                    <h3 style="margin-top: 40px;">Bizi Takip Edin</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Mesaj Gönderin</h3>
+                    <form action="contact.php" method="POST" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Adınız Soyadınız*</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta Adresiniz*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon Numaranız</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesajınız*</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Gönder</button>
+                    </form>
+                </div>
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3128.9664342277374!2d34.82930177602555!3d38.644267171201936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152a66f3f358d38d%3A0x73dc4058d6c1dabe!2zxLBzYWxpLCDEsMOnZXJpZGVyZSBTay4gTk86MjMsIDUwMTgwIEfDtnJlbWUvTmV2xZ9laGlyIE1lcmtlei9OZXbFn2VoaXI!5e0!3m2!1str!2str!4v1652123456789!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <img src="images/logocapo.png" alt="Bike Tour Cappadocia">
+                    </div>
+                    <p>Profesyonel rehberler eşliğinde Kapadokya'nın eşsiz manzaralarını bisikletle keşfedin.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="routes.html">Rotalar</a>
+                    <a href="gallery.html">Galeri</a>
+                    <a href="about.html">Hakkımızda</a>
+                    <a href="contact.html">İletişim</a>
+                </div>
+                <div class="footer-column">
+                    <h3>İletişim</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> İsali, İçeridere Sk. NO:23, 50180 Göreme/Nevşehir</p>
+                    <p><i class="fas fa-phone"></i> +90 537 646 76 55</p>
+                    <p><i class="fas fa-envelope"></i> info@biketourcappadocia.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Bike Tour Cappadocia. Tüm hakları saklıdır. | Geliştirici: <a href="https://d21.tr" target="_blank">d21.tr</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/905376467655" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobil menü
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.createElement('div');
+            mobileMenu.style.position = 'fixed';
+            mobileMenu.style.top = '0';
+            mobileMenu.style.left = '0';
+            mobileMenu.style.width = '100%';
+            mobileMenu.style.height = '100%';
+            mobileMenu.style.backgroundColor = 'var(--background)';
+            mobileMenu.style.zIndex = '2000';
+            mobileMenu.style.padding = '2rem';
+            mobileMenu.style.transform = 'translateX(-100%)';
+            mobileMenu.style.transition = 'transform 0.3s ease';
+            
+            mobileMenu.innerHTML = `
+                <div style="position:absolute; top:1rem; right:1rem; font-size:1.5rem; cursor:pointer;">
+                    <i class="fas fa-times"></i>
+                </div>
+                <ul style="list-style:none; margin-top:3rem;">
+                    <li style="margin-bottom:1.5rem;"><a href="index.html" style="color:var(--foreground); text-decoration:none; font-size:1.25rem;">Ana Sayfa</a></li>
+                    <li style="margin-bottom:1.5rem;"><a href="routes.html" style="color:var(--foreground); text-decoration:none; font-size:1.25rem;">Rotalar</a></li>
+                    <li style="margin-bottom:1.5rem;"><a href="gallery.html" style="color:var(--foreground); text-decoration:none; font-size:1.25rem;">Galeri</a></li>
+                    <li style="margin-bottom:1.5rem;"><a href="about.html" style="color:var(--foreground); text-decoration:none; font-size:1.25rem;">Hakkımızda</a></li>
+                    <li style="margin-bottom:1.5rem;"><a href="contact.html" style="color:var(--primary); text-decoration:none; font-size:1.25rem;">İletişim</a></li>
+                    <li><a href="reservation.html" style="display:inline-block; background-color:var(--primary); color:white; padding:12px 30px; border-radius:var(--radius); text-decoration:none; font-weight:600;">Rezervasyon</a></li>
+                </ul>
+            `;
+            
+            document.body.appendChild(mobileMenu);
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.style.transform = 'translateX(0)';
+            });
+            
+            const closeBtn = mobileMenu.querySelector('.fa-times');
+            closeBtn.addEventListener('click', function() {
+                mobileMenu.style.transform = 'translateX(-100%)';
+            });
+            
+            // Form gönderimi
+            const contactForm = document.getElementById('contact-form');
+            
+            contactForm.addEventListener('submit', function(e) {
+                // PHP form işleme yapacağımız için submit işlemini engelleme yok
+                
+                // URL parametrelerini kontrol et
+                const urlParams = new URLSearchParams(window.location.search);
+                const status = urlParams.get('status');
+                
+                if (status === 'success') {
+                    alert('Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.');
+                } else if (status === 'error') {
+                    alert('Mesajınız gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+                } else if (status === 'validation_error') {
+                    const message = urlParams.get('message');
+                    alert('Form doğrulama hatası: ' + (message || 'Lütfen tüm alanları doğru şekilde doldurun.'));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
