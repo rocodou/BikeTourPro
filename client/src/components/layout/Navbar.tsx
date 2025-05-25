@@ -74,6 +74,7 @@ const Navbar = () => {
             <Link href="/" onClick={() => setIsOpen(false)} className={`nav-link mobile-link text-light hover:text-primary transition-colors duration-300 py-2 ${isActive('/')}`}>Home</Link>
             <Link href="/routes" onClick={() => setIsOpen(false)} className={`nav-link mobile-link text-light hover:text-primary transition-colors duration-300 py-2 ${isActive('/routes')}`}>Routes</Link>
             <Link href="/6-day-tour" onClick={() => setIsOpen(false)} className={`nav-link mobile-link text-light hover:text-primary transition-colors duration-300 py-2 ${isActive('/6-day-tour')}`}>6-Day Tour</Link>
+            <Link href="/gallery" onClick={() => setIsOpen(false)} className={`nav-link mobile-link text-light hover:text-primary transition-colors duration-300 py-2 ${isActive('/gallery')}`}>Gallery</Link>
             <Link href="/about-us" onClick={() => setIsOpen(false)} className={`nav-link mobile-link text-light hover:text-primary transition-colors duration-300 py-2 ${isActive('/about-us')}`}>About Us</Link>
             <Link href="/reservation" onClick={() => setIsOpen(false)} className={`nav-link mobile-link text-light hover:text-primary transition-colors duration-300 py-2 ${isActive('/reservation')}`}>Reservation</Link>
             <Link href="/contact" onClick={() => setIsOpen(false)} className={`nav-link mobile-link text-light hover:text-primary transition-colors duration-300 py-2 ${isActive('/contact')}`}>Contact</Link>
