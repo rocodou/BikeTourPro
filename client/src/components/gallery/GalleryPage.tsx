@@ -1,17 +1,6 @@
-import { useState, useEffect } from 'react';
-import { 
-  Dialog,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  X, 
-  Maximize2,
-  ChevronRight as NextIcon
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Kapadokya galeri resimleri
 const galleryImages = [
@@ -53,7 +42,7 @@ const galleryImages = [
   },
   {
     id: "img7",
-    src: "https://images.unsplash.com/photo-1523297731179-6fb81051553d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    src: "/images/about/cycling-cappadocia.webp",
     alt: "Cappadocia Landscape",
     category: "drone"
   },
@@ -109,10 +98,8 @@ const galleryImages = [
 
 const ITEMS_PER_PAGE = 8;
 
-const PhotoGallery = () => {
+const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const [isFullscreen, setIsFullscreen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -125,41 +112,8 @@ const PhotoGallery = () => {
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const displayedImages = filteredImages.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
-  const handleImageClick = (id: string, index: number) => {
-    // Adjust index to account for pagination
-    const globalIndex = startIndex + index;
-    setSelectedImage(id);
-    setSelectedIndex(globalIndex);
-  };
-
-  const handlePrevious = () => {
-    if (selectedIndex > 0) {
-      const newIndex = selectedIndex - 1;
-      setSelectedIndex(newIndex);
-      setSelectedImage(filteredImages[newIndex].id);
-    }
-  };
-
-  const handleNext = () => {
-    if (selectedIndex < filteredImages.length - 1) {
-      const newIndex = selectedIndex + 1;
-      setSelectedIndex(newIndex);
-      setSelectedImage(filteredImages[newIndex].id);
-    }
-  };
-
-  const toggleFullscreen = () => {
-    setIsFullscreen(!isFullscreen);
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'ArrowLeft') {
-      handlePrevious();
-    } else if (e.key === 'ArrowRight') {
-      handleNext();
-    } else if (e.key === 'Escape') {
-      setSelectedImage(null);
-    }
+  const handleImageClick = (src: string) => {
+    window.open(src, '_blank');
   };
 
   const goToNextPage = () => {
@@ -224,70 +178,23 @@ const PhotoGallery = () => {
       </div>
       
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
-        {displayedImages.map((image, index) => (
-          <Dialog key={image.id}>
-            <DialogTitle className="sr-only">View Photo</DialogTitle>
-            <DialogTrigger asChild>
-              <div 
-                className="aspect-square overflow-hidden rounded-lg cursor-pointer group relative"
-                onClick={() => handleImageClick(image.id, index)}
-              >
-                <img 
-                  src={image.src} 
-                  alt={image.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <Maximize2 className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={24} />
-                </div>
-              </div>
-            </Dialog.Trigger>
-            <DialogContent 
-              className="sm:max-w-4xl bg-black bg-opacity-90 border-gray-800" 
-              onKeyDown={handleKeyDown}
-              aria-describedby="gallery-item-description"
-            >
-              <div id="gallery-item-description" className="sr-only">Cappadocia bike tour photo gallery image</div>
-              <div className={`relative ${isFullscreen ? 'fixed inset-0 z-50 bg-black flex items-center justify-center' : ''}`}>
-                <img 
-                  src={filteredImages[selectedIndex]?.src} 
-                  alt={filteredImages[selectedIndex]?.alt}
-                  className={`max-h-[80vh] mx-auto ${isFullscreen ? 'max-w-screen max-h-screen object-contain' : ''}`}
-                />
-                
-                <div className="absolute top-2 right-2 flex space-x-2">
-                  <button 
-                    onClick={toggleFullscreen}
-                    className="p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-70 transition-all duration-200"
-                  >
-                    <Maximize2 size={20} />
-                  </button>
-                  <button 
-                    onClick={() => setSelectedImage(null)}
-                    className="p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-70 transition-all duration-200"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
-                
-                <button 
-                  onClick={handlePrevious}
-                  disabled={selectedIndex === 0}
-                  className={`absolute left-2 top-1/2 transform -translate-y-1/2 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-70 transition-all duration-200 ${selectedIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
-                >
-                  <ChevronLeft size={24} />
-                </button>
-                
-                <button 
-                  onClick={handleNext}
-                  disabled={selectedIndex === filteredImages.length - 1}
-                  className={`absolute right-2 top-1/2 transform -translate-y-1/2 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-70 transition-all duration-200 ${selectedIndex === filteredImages.length - 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
-                >
-                  <ChevronRight size={24} />
-                </button>
-              </div>
-            </DialogContent>
-          </Dialog>
+        {displayedImages.map((image) => (
+          <div 
+            key={image.id}
+            className="aspect-square overflow-hidden rounded-lg cursor-pointer group relative"
+            onClick={() => handleImageClick(image.src)}
+          >
+            <img 
+              src={image.src} 
+              alt={image.alt}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg font-medium">
+                View Full Size
+              </span>
+            </div>
+          </div>
         ))}
       </div>
       
@@ -313,7 +220,7 @@ const PhotoGallery = () => {
             disabled={currentPage === totalPages}
             className={currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""}
           >
-            Next <NextIcon className="ml-1" size={16} />
+            Next <ChevronRight className="ml-1" size={16} />
           </Button>
         </div>
       )}
@@ -321,4 +228,4 @@ const PhotoGallery = () => {
   );
 };
 
-export default PhotoGallery;
+export default GalleryPage;

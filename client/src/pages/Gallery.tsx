@@ -1,4 +1,4 @@
-import PhotoGallery from "@/components/gallery/PhotoGallery";
+import GalleryPage from "@/components/gallery/GalleryPage";
 
 const Gallery = () => {
   return (
@@ -13,11 +13,11 @@ const Gallery = () => {
             awaiting you on our bike tours.
           </p>
           <p className="text-gray-300">
-            Click on any image to view it in full size and use the navigation arrows to browse through the gallery.
+            Click on any image to view it in full size. You can filter photos by category using the buttons below.
           </p>
         </div>
         
-        <PhotoGallery />
+        <GalleryPage />
       </div>
     </section>
   );

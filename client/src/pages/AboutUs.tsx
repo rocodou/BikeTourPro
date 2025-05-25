@@ -31,7 +31,7 @@ const AboutUs = () => {
           <div>
             <div className="rounded-lg overflow-hidden h-[300px] mb-6">
               <img 
-                src="https://images.unsplash.com/photo-1570330211009-ee3caf5efe44" 
+                src="/images/about/cycling-cappadocia.webp" 
                 alt="Cycling in Cappadocia" 
                 className="w-full h-full object-cover"
               />
