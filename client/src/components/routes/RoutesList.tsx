@@ -138,7 +138,7 @@ const routes: RouteInfo[] = [
     distance: "40 km",
     duration: "5 hours",
     description: "Follow the tranquil path along the Melendiz River through the spectacular Ihlara Canyon, visiting ancient cave churches and experiencing stunning natural beauty.",
-    image: "https://images.unsplash.com/photo-1584636633449-6d6c60cb5610?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/images/routes/ihlara-valley-ride.webp",
     price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
     includes: [
       "English speaking licensed tour guide",
