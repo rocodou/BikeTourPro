@@ -41,17 +41,29 @@ const ContactForm = () => {
     setError(false);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // If API call is successful
-      setSuccess(true);
-      form.reset();
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. We'll get back to you soon.",
+      // Call the API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
+      
+      const result = await response.json();
+      
+      if (response.ok && result.success) {
+        setSuccess(true);
+        form.reset();
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. We'll get back to you soon.",
+        });
+      } else {
+        throw new Error(result.message || 'Something went wrong');
+      }
     } catch (err) {
+      console.error('Contact form submission error:', err);
       setError(true);
       toast({
         title: "Something went wrong",

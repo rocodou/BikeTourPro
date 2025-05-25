@@ -71,17 +71,29 @@ const ReservationForm = () => {
     setError(false);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // If API call is successful
-      setSuccess(true);
-      form.reset();
-      toast({
-        title: "Reservation Successful!",
-        description: "Thank you for your reservation. We'll contact you shortly to confirm the details.",
+      // Call the reservation API endpoint
+      const response = await fetch('/api/reservation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
+      
+      const result = await response.json();
+      
+      if (response.ok && result.success) {
+        setSuccess(true);
+        form.reset();
+        toast({
+          title: "Reservation Successful!",
+          description: "Thank you for your reservation. We'll contact you shortly to confirm the details.",
+        });
+      } else {
+        throw new Error(result.message || 'Something went wrong');
+      }
     } catch (err) {
+      console.error('Reservation submission error:', err);
       setError(true);
       toast({
         title: "Something went wrong",
