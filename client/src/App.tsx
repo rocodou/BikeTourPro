@@ -114,7 +114,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Navbar />
-        <main className="min-h-screen pt-20 md:pt-24">
+        <main className="min-h-screen">
           <Router />
         </main>
         <Footer />

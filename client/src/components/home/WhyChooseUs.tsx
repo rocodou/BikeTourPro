@@ -5,7 +5,7 @@ const WhyChooseUs = () => {
     <div className="container mx-auto px-4 py-16">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="fade-in">
-          <h2 className="text-3xl font-bold mb-6 font-heading text-white">Why Choose <span className="text-primary">CycleTrek</span>?</h2>
+          <h2 className="text-3xl font-bold mb-6 font-heading text-white">Why Choose <span className="text-primary">Bike Tour Cappadocia</span>?</h2>
           <p className="text-[#9CA3AF] mb-6">We are passionate cyclists who believe that the best way to experience any location is on two wheels. Our tours combine adventure, culture, and unforgettable experiences.</p>
           <ul className="space-y-4">
             <li className="flex items-start">
@@ -41,12 +41,14 @@ const WhyChooseUs = () => {
         </div>
         
         <div className="fade-in">
-          <img 
-            src="https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-            alt="Group of cyclists enjoying a mountain tour" 
-            className="rounded-xl shadow-xl w-full h-auto" 
-            loading="lazy"
-          />
+          <div className="h-[400px] rounded-xl shadow-xl overflow-hidden">
+            <img 
+              src="https://tinyurl.com/cappadociabike" 
+              alt="Cycling in Cappadocia" 
+              className="w-full h-full object-cover" 
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -149,6 +149,32 @@
   }
 }
 
+/* Full screen video fixes */
+iframe.w-screen {
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  iframe.w-screen {
+    height: 56.25vw;
+    width: 100vw;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  iframe.w-screen {
+    width: 177.78vh;
+    min-width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 /* Difficulty badges */
 .difficulty-badge {
   display: inline-flex;
