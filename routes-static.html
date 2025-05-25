@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotalar | Bike Tour Cappadocia</title>
+    <meta name="description" content="Kapadokya'da bisiklet turları için özel rotalarımızı keşfedin. Peri bacaları ve vadiler arasında unutulmaz bir deneyim için hazırlanan çeşitli zorluk seviyelerindeki rotalarımız.">
+    <style>
+        :root {
+            --background: #0a0a0a;
+            --foreground: #f9f9f9;
+            --primary: #ff6118;
+            --secondary: #ffcc00;
+            --accent: #ff8f00;
+            --muted: #404040;
+            --muted-foreground: #a5a5a5;
+            --border: #333333;
+            --card: #1a1a1a;
+            --radius: 0.5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(10, 10, 10, 0.9);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--foreground);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--primary);
+        }
+
+        .page-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAD6ASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6pooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//Z');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            color: white;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        .route-details {
+            margin-bottom: 80px;
+        }
+
+        .route-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .route-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .route-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .route-description {
+            padding: 20px;
+            background-color: var(--card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .route-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .spec-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .difficulty.easy {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .difficulty.moderate {
+            background-color: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .difficulty.challenging {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .price-table th {
+            background-color: var(--muted);
+            color: var(--foreground);
+            font-weight: 600;
+        }
+
+        .price-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #e55613;
+        }
+
+        .route-map {
+            height: 400px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        .route-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .itinerary {
+            margin-top: 40px;
+        }
+
+        .day-item {
+            background-color: var(--card);
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .day-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .day-distance {
+            background-color: var(--muted);
+            color: var(--foreground);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        footer {
+            background-color: var(--card);
+            padding: 60px 0 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-column p, .footer-column a {
+            color: var(--muted-foreground);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--muted);
+            border-radius: 50%;
+            color: var(--foreground);
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--muted-foreground);
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        /* Mobil uyumlu tasarım */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                font-size: 1.5rem;
+                color: var(--foreground);
+                cursor: pointer;
+            }
+
+            .route-info {
+                grid-template-columns: 1fr;
+            }
+
+            .route-image {
+                height: 250px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAA8CAYAAAAjW/WRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABIFJREFUeNrsneFx2zAMhi3f/2NHqDtCnBHqblB3g2QEe4N0BHcEe4Q6I7QbuCPYI5QdoSwKkOcqti1bkmVS+e7wKzZJiQTwAQQlGwYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAzLm4QRn/Hs9D88jcPIrmcRnLc+KKfWke5easx3Qxj6r/J4/h0jyu4xG9a47lc3MxcXCG+t6Ze9v2d87mkbjvOeX9KZpjUZmj0U6m1VL0oZhrDLZ8jqYvP93nwBmM4rIiP5z5a/N4o7w2c9iUYZm33XcK5VN8Dhg4KuKHI+Gci/P8dkqbF/OiMrK1yiGUf+HOWzijfT7hZxrSBq+Ri2Oijao59k3nxZy7dF/MgdGEpihMG0V3NNpzhWYJRulVtS/5a6E50rFQPGPdH1KF3Jt3+drUacdh2r0Z8+5c0KmvSVOvuvLNc2QUG4u5kM/hDUwczL2YZ85nYuhEMk3nNGFt6ttGOUv91sFr9A3LKxe/NnpO/v/RhVIfRE7nUd+DnDOY+/sAhVyYejXkc87nYu9iD/0g1+5wppBUYTQHv1FxaB5t8w5Zqo38uS+LWHDnfU7oYx86CqEF2iDJQVPa3jgqThnFWXGMfp8N7wvEsQ5yDlyI59DtQ+Jh7txEzpMX5Z/tPrAeR+ezTGFfbFwvS/S8I8WZGOWpwlD6t3Hh2/JYVkPMY5/9TfyZYy5/l/lsuDo8zXOOBXP32lIPXCEZFCJWn6txnJPzp0kIjTZHW4+nwmKFOPcSyLxfKWuiUwJZaR4P+R0zTzQV8lSe28DYYeq0TpI6XdH1QhL14X3UKWTJqvDl9X2EcQFHy8Wcy98VXfU5wKsWvDTXQnJ1LxdvG4daiI9vUghlE5uB+LOpkJWc01zYLYxRzJ7Xw/8mLwvbeBDitw47NpDL92lIOHQJzlGLxVbBPCCX/wBiHudtmjuJOVvn9NqyXCnrEMrGjmejvFKcpZpwflb+j2cUWzDHOT33o0sWe7H3YVbKfPcL5vLiXs8dP4dSxu7q4q+0Wj5TYZ8XyoZlGnDI3ivt1a4IW+e0ZbUkOX0xMGTrY4/tZJqKgx+0xH/D2vN6CeNjHbtv1S5BL70LGjWIJRJ58adw/pLNgb5N3YjEEpKgpGAWyua5lVLL5XCrOWyVTbZH+GxP2NfbMWEsUu5PEGtj64TLUN7ecRPPdaJxVe5FIgwwn4JYjlFIOcHQ0tYz96J0DuLj4yHdEp6x0z6ZGnP1rcOc8+0iDSXAa9+0jtSKnbKUJL2jGZcS2vl2mKUxdqEklkJJuO19hSnLLCqXWPjcF+K1e02pXw7cBvbJhk+fA8qRVMw3V9fOJXu8kFnL75Ww7Zxtt95v2r4uGPdlwRxbx2fHGCNPG4HtnPPP0fX+x1RvOduGqmfM7HiB7K3jt7iDW4gzg03aG94b1mTB3A7BuwJ/2wsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaP4JMACvhVI+FbH4vAAAAABJRU5ErkJggg==" alt="Bike Tour Cappadocia">
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="routes-static.html" class="active">Rotalar</a></li>
+                        <li><a href="gallery.html">Galeri</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="contact-static.html">İletişim</a></li>
+                        <li><a href="reservation.html" class="btn-primary">Rezervasyon</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1 class="page-title">Rotalarımız</h1>
+    </div>
+
+    <section>
+        <div class="container">
+            <h2>Keşfedin ve Maceraya Atılın</h2>
+            <p>Kapadokya'nın eşsiz manzaralarını ve doğasını keşfetmek için özel olarak tasarlanmış bisiklet rotalarımız arasından size en uygun olanı seçin. Farklı zorluk seviyelerinde tur seçeneklerimiz, hem acemi hem de deneyimli bisikletçiler için unutulmaz deneyimler sunuyor.</p>
+
+            <div class="route-details">
+                <h3>6 Günlük Kapadokya Turu</h3>
+                <div class="route-info">
+                    <div class="route-image">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAD6ASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6pooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//Z" alt="6 Günlük Kapadokya Turu">
+                    </div>
+                    <div class="route-description">
+                        <span class="difficulty challenging">Zorlayıcı</span>
+                        <p>Kapadokya'nın tüm önemli bölgelerini kapsayan, vadiler ve peri bacaları arasında tam bir macera. Bu 6 günlük tur, Kapadokya'nın en güzel manzaralarını, tarihi yerlerini ve kültürel zenginliklerini bisiklet üzerinde keşfetmenizi sağlar.</p>
+                        
+                        <div class="route-specs">
+                            <div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-route"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Toplam Mesafe:</strong> 240 km
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-mountain"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Zorluk Seviyesi:</strong> Zorlayıcı
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Süre:</strong> 6 gün
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-bicycle"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Bisiklet Tipi:</strong> Dağ Bisikleti
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Fiyatlar</h4>
+                        <table class="price-table">
+                            <tr>
+                                <th>Grup Büyüklüğü</th>
+                                <th>Kişi Başı Fiyat</th>
+                            </tr>
+                            <tr>
+                                <td>1 Kişi</td>
+                                <td>250€</td>
+                            </tr>
+                            <tr>
+                                <td>2 Kişi</td>
+                                <td>160€</td>
+                            </tr>
+                            <tr>
+                                <td>3 Kişi</td>
+                                <td>130€</td>
+                            </tr>
+                            <tr>
+                                <td>4+ Kişi</td>
+                                <td>110€</td>
+                            </tr>
+                        </table>
+
+                        <a href="reservation.html" class="btn-primary">Rezervasyon Yap</a>
+                    </div>
+                </div>
+
+                <div class="itinerary">
+                    <h4>Tur Programı</h4>
+                    <div class="day-item">
+                        <div class="day-header">
+                            <div class="day-title">Gün 1: Göreme - Uçhisar</div>
+                            <div class="day-distance">35 km</div>
+                        </div>
+                        <p>Turumuz Göreme'den başlayarak Güvercinlik Vadisi boyunca ilerler ve Uçhisar Kalesi'ne ulaşır. Yolda Love Valley (Aşıklar Vadisi) ve Güzel At Vadisi'ni keşfedecek, yerel bir restoranda öğle yemeği molası vereceğiz.</p>
+                    </div>
+                    <div class="day-item">
+                        <div class="day-header">
+                            <div class="day-title">Gün 2: Uçhisar - Avanos</div>
+                            <div class="day-distance">40 km</div>
+                        </div>
+                        <p>Uçhisar'dan Avanos'a doğru ilerlerken Kızılırmak Nehri boyunca muhteşem manzaralar eşliğinde pedal çevirecek, tarihi çömlek atölyelerini ziyaret edeceğiz.</p>
+                    </div>
+                    <div class="day-item">
+                        <div class="day-header">
+                            <div class="day-title">Gün 3: Avanos - Ortahisar</div>
+                            <div class="day-distance">45 km</div>
+                        </div>
+                        <p>Avanos'tan başlayıp Ürgüp üzerinden Ortahisar'a ulaşacağımız bu günde, bağlar arasından geçerek yerel şarap üretimi hakkında bilgi edinecek ve muhteşem peri bacası formasyonlarını göreceğiz.</p>
+                    </div>
+                    <div class="day-item">
+                        <div class="day-header">
+                            <div class="day-title">Gün 4: Ortahisar - Mustafapaşa</div>
+                            <div class="day-distance">38 km</div>
+                        </div>
+                        <p>Ortahisar'dan Mustafapaşa'ya giden rotamız, Gomeda Vadisi ve eski Rum yerleşimleri arasından geçer. Yerel halkla etkileşim ve kültürel deneyimler bugünün öne çıkan özellikleri.</p>
+                    </div>
+                    <div class="day-item">
+                        <div class="day-header">
+                            <div class="day-title">Gün 5: Mustafapaşa - Soğanlı</div>
+                            <div class="day-distance">50 km</div>
+                        </div>
+                        <p>Turumuzun en uzun ve zorlu gününde, Soğanlı Vadisi'nin derinliklerine ineceğiz. Yol boyunca kayalara oyulmuş kiliseler ve eski manastırlar görecek, gerçek bir macera yaşayacağız.</p>
+                    </div>
+                    <div class="day-item">
+                        <div class="day-header">
+                            <div class="day-title">Gün 6: Soğanlı - Göreme</div>
+                            <div class="day-distance">32 km</div>
+                        </div>
+                        <p>Final günümüzde Soğanlı'dan başlangıç noktamız olan Göreme'ye döneceğiz. Yolda Derinkuyu Yeraltı Şehri'ni ziyaret edecek ve Kapadokya'nın en etkileyici manzaralarından bazılarını göreceğiz.</p>
+                    </div>
+                </div>
+
+                <div class="route-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202822.77703547812!2d34.6942870842788!3d38.64736979293701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d6026feb732b07%3A0x9e2430f355c3c385!2sCappadocia!5e0!3m2!1sen!2str!4v1621532709258!5m2!1sen!2str" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="route-details">
+                <h3>Günlük Tur</h3>
+                <div class="route-info">
+                    <div class="route-image">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAD6ASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6pooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooD//Z" alt="Günlük Tur">
+                    </div>
+                    <div class="route-description">
+                        <span class="difficulty moderate">Orta</span>
+                        <p>Göreme Vadisi ve çevresini keşfedebileceğiniz, yarım veya tam gün süren tur seçenekleri. Zaman kısıtlaması olan veya uzun süreli turları tercih etmeyen misafirlerimiz için idealdir.</p>
+                        
+                        <div class="route-specs">
+                            <div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-route"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Toplam Mesafe:</strong> 25-40 km
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-mountain"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Zorluk Seviyesi:</strong> Orta
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Süre:</strong> 4-8 saat
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-bicycle"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Bisiklet Tipi:</strong> Dağ Bisikleti / Hybrid
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Fiyatlar</h4>
+                        <table class="price-table">
+                            <tr>
+                                <th>Tur Tipi</th>
+                                <th>Kişi Başı Fiyat</th>
+                            </tr>
+                            <tr>
+                                <td>Yarım Gün (4 saat)</td>
+                                <td>50€</td>
+                            </tr>
+                            <tr>
+                                <td>Tam Gün (8 saat)</td>
+                                <td>80€</td>
+                            </tr>
+                        </table>
+
+                        <p>* 4 kişi ve üzeri gruplarda %10 indirim uygulanır.</p>
+
+                        <a href="reservation.html" class="btn-primary">Rezervasyon Yap</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-details">
+                <h3>Özel Tasarım Turlar</h3>
+                <div class="route-info">
+                    <div class="route-image">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAD6ASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6pooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//Z" alt="Özel Tasarım Turlar">
+                    </div>
+                    <div class="route-description">
+                        <span class="difficulty easy">Kolay</span>
+                        <p>İsteğinize göre özelleştirilebilen, grubunuzun fitness seviyesine uygun özel tur seçenekleri. Kendi programınızı oluşturun, görülecek yerler ve tur süresi konusunda esneklik sağlayın.</p>
+                        
+                        <div class="route-specs">
+                            <div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-route"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Toplam Mesafe:</strong> İsteğe bağlı
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-mountain"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Zorluk Seviyesi:</strong> İsteğe bağlı
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="far fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Süre:</strong> 1-10 gün
+                                    </div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-icon">
+                                        <i class="fas fa-bicycle"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Bisiklet Tipi:</strong> Tüm tipler mevcut
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Neler İsteğe Göre Özelleştirilebilir?</h4>
+                        <ul>
+                            <li>Tur rotası ve ziyaret edilecek yerler</li>
+                            <li>Tur süresi ve günlük mesafe</li>
+                            <li>Konaklama türleri (otel, pansiyon, çadır kampı)</li>
+                            <li>Bisiklet türü ve ekipman</li>
+                            <li>Özel ilgi alanlarına göre rotalar (fotoğrafçılık, tarih, gastronomi)</li>
+                        </ul>
+
+                        <p>Fiyatlar, turun içeriğine, süresine ve grup büyüklüğüne göre değişiklik gösterir. Detaylı bilgi için bizimle iletişime geçin.</p>
+
+                        <a href="contact-static.html" class="btn-primary">İletişime Geç</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAA8CAYAAAAjW/WRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABIFJREFUeNrsneFx2zAMhi3f/2NHqDtCnBHqblB3g2QEe4N0BHcEe4Q6I7QbuCPYI5QdoSwKkOcqti1bkmVS+e7wKzZJiQTwAQQlGwYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAzLm4QRn/Hs9D88jcPIrmcRnLc+KKfWke5easx3Qxj6r/J4/h0jyu4xG9a47lc3MxcXCG+t6Ze9v2d87mkbjvOeX9KZpjUZmj0U6m1VL0oZhrDLZ8jqYvP93nwBmM4rIiP5z5a/N4o7w2c9iUYZm33XcK5VN8Dhg4KuKHI+Gci/P8dkqbF/OiMrK1yiGUf+HOWzijfT7hZxrSBq+Ri2Oijao59k3nxZy7dF/MgdGEpihMG0V3NNpzhWYJRulVtS/5a6E50rFQPGPdH1KF3Jt3+drUacdh2r0Z8+5c0KmvSVOvuvLNc2QUG4u5kM/hDUwczL2YZ85nYuhEMk3nNGFt6ttGOUv91sFr9A3LKxe/NnpO/v/RhVIfRE7nUd+DnDOY+/sAhVyYejXkc87nYu9iD/0g1+5wppBUYTQHv1FxaB5t8w5Zqo38uS+LWHDnfU7oYx86CqEF2iDJQVPa3jgqThnFWXGMfp8N7wvEsQ5yDlyI59DtQ+Jh7txEzpMX5Z/tPrAeR+ezTGFfbFwvS/S8I8WZGOWpwlD6t3Hh2/JYVkPMY5/9TfyZYy5/l/lsuDo8zXOOBXP32lIPXCEZFCJWn6txnJPzp0kIjTZHW4+nwmKFOPcSyLxfKWuiUwJZaR4P+R0zTzQV8lSe28DYYeq0TpI6XdH1QhL14X3UKWTJqvDl9X2EcQFHy8Wcy98VXfU5wKsWvDTXQnJ1LxdvG4daiI9vUghlE5uB+LOpkJWc01zYLYxRzJ7Xw/8mLwvbeBDitw47NpDL92lIOHQJzlGLxVbBPCCX/wBiHudtmjuJOVvn9NqyXCnrEMrGjmejvFKcpZpwflb+j2cUWzDHOT33o0sWe7H3YVbKfPcL5vLiXs8dP4dSxu7q4q+0Wj5TYZ8XyoZlGnDI3ivt1a4IW+e0ZbUkOX0xMGTrY4/tZJqKgx+0xH/D2vN6CeNjHbtv1S5BL70LGjWIJRJ58adw/pLNgb5N3YjEEpKgpGAWyua5lVLL5XCrOWyVTbZH+GxP2NfbMWEsUu5PEGtj64TLUN7ecRPPdaJxVe5FIgwwn4JYjlFIOcHQ0tYz96J0DuLj4yHdEp6x0z6ZGnP1rcOc8+0iDSXAa9+0jtSKnbKUJL2jGZcS2vl2mKUxdqEklkJJuO19hSnLLCqXWPjcF+K1e02pXw7cBvbJhk+fA8qRVMw3V9fOJXu8kFnL75Ww7Zxtt95v2r4uGPdlwRxbx2fHGCNPG4HtnPPP0fX+x1RvOduGqmfM7HiB7K3jt7iDW4gzg03aG94b1mTB3A7BuwJ/2wsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaP4JMACvhVI+FbH4vAAAAABJRU5ErkJggg==" alt="Bike Tour Cappadocia">
+                    </div>
+                    <p>Profesyonel rehberler eşliğinde Kapadokya'nın eşsiz manzaralarını bisikletle keşfedin.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="routes-static.html">Rotalar</a>
+                    <a href="gallery.html">Galeri</a>
+                    <a href="about.html">Hakkımızda</a>
+                    <a href="contact-static.html">İletişim</a>
+                </div>
+                <div class="footer-column">
+                    <h3>İletişim</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> İsali, İçeridere Sk. NO:23, 50180 Göreme/Nevşehir</p>
+                    <p><i class="fas fa-phone"></i> +90 537 646 76 55</p>
+                    <p><i class="fas fa-envelope"></i> info@biketourcappadocia.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Bike Tour Cappadocia. Tüm hakları saklıdır. | Geliştirici: <a href="https://d21.tr" target="_blank">d21.tr</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/905376467655" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobil menü
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.createElement('div');
+            mobileMenu.style.position = 'fixed';
+            mobileMenu.style.top = '0';
+            mobileMenu.style.left = '0';
+            mobileMenu.style.width = '100%';
+            mobileMenu.style.height = '100%';
+            mobileMenu.style.backgroundColor = 'var(--background)';
+            mobileMenu.style.zIndex = '2000';
+            mobileMenu.style.padding = '2rem';
+            mobileMenu.style.transform = 'translateX(-100%)';
+            mobileMenu.style.transition = 'transform 0.3s ease';
+            
+            mobileMenu.innerHTML = `
+                <div style="position:absolute; top:1rem; right:1rem; font-size:1.5rem; cursor:pointer;">
+                    <i class="fas fa-times"></i>
+                </div>
+                <ul style="list-style:none; margin-top:3rem;">
+                    <li style="margin-bottom:1.5rem;"><a href="index.html" style="color:var(--foreground); text-decoration:none; font-size:1.25rem;">Ana Sayfa</a></li>
+                    <li style="margin-bottom:1.5rem;"><a href="routes-static.html" style="color:var(--primary); text-decoration:none; font-size:1.25rem;">Rotalar</a></li>
+                    <li style="margin-bottom:1.5rem;"><a href="gallery.html" style="color:var(--foreground); text-decoration:none; font-size:1.25rem;">Galeri</a></li>
+                    <li style="margin-bottom:1.5rem;"><a href="about.html" style="color:var(--foreground); text-decoration:none; font-size:1.25rem;">Hakkımızda</a></li>
+                    <li style="margin-bottom:1.5rem;"><a href="contact-static.html" style="color:var(--foreground); text-decoration:none; font-size:1.25rem;">İletişim</a></li>
+                    <li><a href="reservation.html" style="display:inline-block; background-color:var(--primary); color:white; padding:12px 30px; border-radius:var(--radius); text-decoration:none; font-weight:600;">Rezervasyon</a></li>
+                </ul>
+            `;
+            
+            document.body.appendChild(mobileMenu);
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.style.transform = 'translateX(0)';
+            });
+            
+            const closeBtn = mobileMenu.querySelector('.fa-times');
+            closeBtn.addEventListener('click', function() {
+                mobileMenu.style.transform = 'translateX(-100%)';
+            });
+        });
+    </script>
+</body>
+</html>
