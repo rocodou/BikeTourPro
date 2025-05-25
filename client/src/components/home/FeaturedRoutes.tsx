@@ -17,21 +17,21 @@ const featuredRoutes: RoutePreview[] = [
     name: "Göreme Valley Tour",
     shortDescription: "Experience the iconic fairy chimneys and cave churches on this family-friendly route.",
     difficulty: "easy",
-    image: "https://images.unsplash.com/photo-1640620708882-2bb28407f618?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
+    image: "https://images.unsplash.com/photo-1580661869408-55ab525ae7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
   },
   {
     id: "red-valley-adventure",
     name: "Red Valley Adventure",
     shortDescription: "Challenging ride through vibrant colored canyons with breathtaking panoramic views.",
     difficulty: "challenging",
-    image: "https://images.unsplash.com/photo-1589307357824-64a9f95b9ce7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
+    image: "https://images.unsplash.com/photo-1642447717557-8987f8d4657e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
   },
   {
     id: "love-valley-exploration",
     name: "Love Valley Exploration",
     shortDescription: "Moderate terrain through unique rock formations and traditional Cappadocian villages.",
     difficulty: "moderate",
-    image: "https://images.unsplash.com/photo-1570330211009-ee3caf5efe44?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
+    image: "https://images.unsplash.com/photo-1625741987033-3493dde773fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
   }
 ];
 
