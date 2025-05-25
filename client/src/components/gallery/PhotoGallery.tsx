@@ -190,7 +190,8 @@ const PhotoGallery = () => {
                 </div>
               </div>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-4xl bg-black bg-opacity-90 border-gray-800" onKeyDown={handleKeyDown}>
+            <DialogContent className="sm:max-w-4xl bg-black bg-opacity-90 border-gray-800" onKeyDown={handleKeyDown} aria-describedby="gallery-item-description">
+              <div id="gallery-item-description" className="sr-only">Cappadocia bike tour photo gallery image</div>
               <div className={`relative ${isFullscreen ? 'fixed inset-0 z-50 bg-black flex items-center justify-center' : ''}`}>
                 <img 
                   src={filteredImages[selectedIndex]?.url || image.url} 
