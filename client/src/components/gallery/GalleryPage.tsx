@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Kapadokya galeri resimleri
+// Kapadokya galeri resimleri - tümü yerel dosyalardan
 const galleryImages = [
   {
     id: "img1",
@@ -46,52 +46,53 @@ const galleryImages = [
     alt: "Cappadocia Landscape",
     category: "drone"
   },
+  // Aşağıdaki 8 resim rotaların kopyaları olacak - çeşitlilik için farklı kategorilerde
   {
     id: "img8",
-    src: "https://images.unsplash.com/photo-1641571704764-8c65bc6f392f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Cappadocia Valley",
+    src: "/images/routes/red-valley-adventure.webp",
+    alt: "Red Valley Views",
     category: "drone"
   },
   {
     id: "img9",
-    src: "https://images.unsplash.com/photo-1570127922889-cbf94e973cd4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Cappadocia Hot Air Balloons",
+    src: "/images/routes/goreme-valley-tour.webp",
+    alt: "Göreme Valley Panorama",
     category: "drone"
   },
   {
     id: "img10",
-    src: "https://images.unsplash.com/photo-1607516683538-83e21a10f348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Cappadocia Caves",
+    src: "/images/routes/underground-city-tour.webp",
+    alt: "Underground City Entrance",
     category: "landscape"
   },
   {
     id: "img11",
-    src: "https://images.unsplash.com/photo-1584636633449-6d6c60cb5610?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Cappadocia Fairy Chimneys",
+    src: "/images/routes/uchisar-pigeon-valley.webp",
+    alt: "Uçhisar Panorama",
     category: "landscape"
   },
   {
     id: "img12",
-    src: "https://images.unsplash.com/photo-1671140929122-603b0de09521?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Cappadocia Biking Trail",
+    src: "/images/routes/ihlara-valley-ride.webp",
+    alt: "Ihlara Valley Trail",
     category: "cycling"
   },
   {
     id: "img13",
-    src: "https://images.unsplash.com/photo-1658322689264-37dbe22f6adf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Riding through valleys",
+    src: "/images/routes/goreme-valley-tour.webp",
+    alt: "Biking in Göreme",
     category: "cycling"
   },
   {
     id: "img14",
-    src: "https://images.unsplash.com/photo-1677695660249-c14e405b3561?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Mountain biking in Cappadocia",
+    src: "/images/routes/love-valley-exploration.webp",
+    alt: "Love Valley Cycling Path",
     category: "cycling"
   },
   {
     id: "img15",
-    src: "https://images.unsplash.com/photo-1675421059803-ccd8c8d19593?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    alt: "Scenic routes of Cappadocia",
+    src: "/images/routes/red-valley-adventure.webp",
+    alt: "Red Valley Sunset",
     category: "landscape"
   }
 ];
