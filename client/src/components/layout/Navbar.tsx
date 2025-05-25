@@ -52,6 +52,7 @@ const Navbar = () => {
               <Link href="/" className={`nav-link text-light hover:text-primary transition-colors duration-300 ${isActive('/')}`}>Home</Link>
               <Link href="/routes" className={`nav-link text-light hover:text-primary transition-colors duration-300 ${isActive('/routes')}`}>Routes</Link>
               <Link href="/6-day-tour" className={`nav-link text-light hover:text-primary transition-colors duration-300 ${isActive('/6-day-tour')}`}>6-Day Tour</Link>
+              <Link href="/gallery" className={`nav-link text-light hover:text-primary transition-colors duration-300 ${isActive('/gallery')}`}>Gallery</Link>
               <Link href="/about-us" className={`nav-link text-light hover:text-primary transition-colors duration-300 ${isActive('/about-us')}`}>About Us</Link>
               <Link href="/reservation" className={`nav-link text-light hover:text-primary transition-colors duration-300 ${isActive('/reservation')}`}>Reservation</Link>
               <Link href="/contact" className={`nav-link text-light hover:text-primary transition-colors duration-300 ${isActive('/contact')}`}>Contact</Link>

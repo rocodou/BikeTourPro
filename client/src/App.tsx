@@ -11,6 +11,7 @@ import ReservationPage from "@/pages/ReservationPage";
 import NotFound from "@/pages/not-found";
 import SixDayTour from "@/pages/SixDayTour";
 import AboutUs from "@/pages/AboutUs";
+import Gallery from "@/pages/Gallery";
 import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
 import TermsOfService from "@/pages/legal/TermsOfService";
 import FAQ from "@/pages/legal/FAQ";
@@ -50,6 +51,11 @@ function Router() {
       <Route path="/about-us">
         <PageTransition>
           <AboutUs />
+        </PageTransition>
+      </Route>
+      <Route path="/gallery">
+        <PageTransition>
+          <Gallery />
         </PageTransition>
       </Route>
       <Route path="/privacy-policy">
