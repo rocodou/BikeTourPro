@@ -8,7 +8,7 @@ const routes: RouteInfo[] = [
     distance: "25 km",
     duration: "3 hours",
     description: "A relaxing ride through the unique fairy chimney landscapes of Göreme Valley, with stops at panoramic viewpoints and hidden cave churches.",
-    image: "https://images.unsplash.com/photo-1570127922889-cbf94e973cd4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/images/routes/goreme-valley-tour.webp",
     price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
     includes: [
       "English speaking licensed tour guide",
@@ -37,7 +37,7 @@ const routes: RouteInfo[] = [
     distance: "35 km",
     duration: "4 hours",
     description: "Pedal through the spectacular Pigeon Valley with its cave dwellings and climb to Uçhisar Castle for breathtaking panoramic views of Cappadocia.",
-    image: "https://images.unsplash.com/photo-1607516683538-83e21a10f348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/images/routes/uchisar-pigeon-valley.webp",
     price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
     includes: [
       "English speaking licensed tour guide",
@@ -61,7 +61,7 @@ const routes: RouteInfo[] = [
     distance: "45 km",
     duration: "6 hours",
     description: "A thrilling adventure through the colorful Red and Rose Valleys with their stunning rock formations, vine vineyards, and ancient cave dwellings.",
-    image: "https://images.unsplash.com/photo-1641571704764-8c65bc6f392f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/images/routes/red-valley-adventure.webp",
     price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
     includes: [
       "English speaking licensed tour guide",
@@ -90,7 +90,7 @@ const routes: RouteInfo[] = [
     distance: "30 km",
     duration: "4 hours",
     description: "Cycle through the iconic Love Valley with its unique tall, thin rock formations and explore the scenic vineyards and orchards of Cappadocia.",
-    image: "https://images.unsplash.com/photo-1603137071762-802f6a51daea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/images/routes/love-valley-exploration.webp",
     price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
     includes: [
       "English speaking licensed tour guide",
@@ -114,7 +114,7 @@ const routes: RouteInfo[] = [
     distance: "50 km",
     duration: "7 hours",
     description: "An epic journey visiting the ancient Derinkuyu Underground City and the lesser-known Soğanlı Valley with its Byzantine rock-cut churches and cave villages.",
-    image: "https://images.unsplash.com/photo-1523297731179-6fb81051553d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/images/routes/underground-city-tour.webp",
     price: "250€ (1 pax) / 160€ (2 pax) / 130€ (3 pax) / 110€ (4+ pax)",
     includes: [
       "English speaking licensed tour guide",
