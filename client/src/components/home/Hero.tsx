@@ -10,6 +10,27 @@ const Hero = () => {
   const controls = useAnimation();
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   
+  // Handle window resize for responsive video
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0,
+  });
+
+  // Update window dimensions when resized
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial call
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
   // Load YouTube iframe API and video
   useEffect(() => {
     const tag = document.createElement("script");
@@ -17,10 +38,17 @@ const Hero = () => {
     const firstScriptTag = document.getElementsByTagName("script")[0];
     firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
     
-    // Lazy load the YouTube video
+    // Lazy load the YouTube video with responsive settings
     const loadVideo = () => {
       if (videoRef.current && !videoRef.current.src) {
-        videoRef.current.src = "https://www.youtube.com/embed/_vf8wzsYm88?autoplay=1&mute=1&loop=1&playlist=_vf8wzsYm88&controls=0&showinfo=0&rel=0&enablejsapi=1";
+        // Determine aspect ratio for responsiveness
+        // On mobile (portrait), we need a different approach to video sizing
+        const isMobile = windowSize.width < 768;
+        const videoParams = isMobile ? 
+          "autoplay=1&mute=1&loop=1&playlist=_vf8wzsYm88&controls=0&showinfo=0&rel=0&enablejsapi=1&modestbranding=1" :
+          "autoplay=1&mute=1&loop=1&playlist=_vf8wzsYm88&controls=0&showinfo=0&rel=0&enablejsapi=1";
+          
+        videoRef.current.src = `https://www.youtube.com/embed/_vf8wzsYm88?${videoParams}`;
         setIsVideoLoaded(true);
       }
     };
@@ -45,7 +73,7 @@ const Hero = () => {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [windowSize]);
   
   // Start the zoom animation when video is loaded
   useEffect(() => {
@@ -67,26 +95,28 @@ const Hero = () => {
       <motion.div 
         ref={videoContainerRef}
         className="absolute inset-0 w-full h-full z-0"
-        style={{ top: '-50px' }}
         animate={controls}
         initial={{ scale: 1.0 }}
       >
-        <iframe
-          ref={videoRef}
-          title="Cycling adventure video"
-          className="absolute w-full h-full object-cover"
-          style={{ 
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            width: '100%',
-            height: 'calc(100% + 50px)',
-            objectFit: 'cover'
-          }}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+        <div className="relative w-full h-full overflow-hidden">
+          <iframe
+            ref={videoRef}
+            title="Cycling adventure video"
+            className="absolute w-[300%] md:w-[200%] lg:w-[140%] h-[100%] md:h-[100%] lg:h-[100%]"
+            style={{ 
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              objectFit: 'cover',
+              minWidth: '100%',
+              minHeight: '100%'
+            }}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
       </motion.div>
       
       {/* Overlay Gradient */}

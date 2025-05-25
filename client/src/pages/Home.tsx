@@ -6,10 +6,18 @@ import CustomerReviews from "@/components/home/CustomerReviews";
 const Home = () => {
   return (
     <>
-      <Hero />
-      <FeaturedRoutes />
-      <WhyChooseUs />
-      <CustomerReviews />
+      <div className="relative">
+        <Hero />
+      </div>
+      <div className="relative z-10">
+        <FeaturedRoutes />
+      </div>
+      <div className="relative z-10">
+        <WhyChooseUs />
+      </div>
+      <div className="relative z-10">
+        <CustomerReviews />
+      </div>
     </>
   );
 };
