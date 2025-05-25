@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Home from "@/pages/Home";
 import RoutesPage from "@/pages/RoutesPage";
 import Contact from "@/pages/Contact";
+import ContactPage from "@/pages/ContactPage";
 import ReservationPage from "@/pages/ReservationPage";
 import NotFound from "@/pages/not-found";
 import SixDayTour from "@/pages/SixDayTour";
@@ -35,7 +36,7 @@ function Router() {
       </Route>
       <Route path="/contact">
         <PageTransition>
-          <Contact />
+          <ContactPage />
         </PageTransition>
       </Route>
       <Route path="/reservation">
